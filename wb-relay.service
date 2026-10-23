@@ -1,6 +1,7 @@
 [Unit]
 Description=Websocket relay Service
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 User=ubuntu
@@ -8,6 +9,7 @@ WorkingDirectory=/home/ubuntu/web_relay
 ExecStart=/home/ubuntu/web_relay/webscoket_relay_server
 Restart=always
 RestartSec=3
+MemoryMax=100M
 
 [Install]
-WantedBy=multi-user.target  
+WantedBy=multi-user.target
